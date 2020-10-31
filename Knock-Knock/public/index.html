@@ -18,11 +18,13 @@
   </head>
   <body>
     <!--Gets user's sweets-->
-
-
-
-
-    <script src="../js/index.js"></script>
+    <script>
+      var sweets = parseInt(document.cookie, 10);
+      if(sweets == null){
+        document.cookie = "sweets=0;"
+        sweets = 0;
+      } //The user's sweets
+    </script>
 
   </body>
 </html>
