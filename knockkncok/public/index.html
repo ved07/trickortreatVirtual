@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Name Of Company</title>
+    <title>Home || Knock Knock</title>
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/8.0.0/firebase-app.js"></script>
@@ -12,15 +12,21 @@
     <script defer src="/__/firebase/8.0.0/firebase-database.js"></script>
     <script defer src="/__/firebase/8.0.0/firebase-messaging.js"></script>
     <script defer src="/__/firebase/8.0.0/firebase-storage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/scandit-sdk@5.x"></script>
+    <link rel="stylesheet" href="main.css"></link>
       <script>
         var sweets = parseInt(document.cookie, 10);
-        if(sweets == null){
-          document.cookie = "sweets=0;"
-          sweets = 0;
-        } //The user's sweets
+         //The user's sweets
       </script>
   </head>
   <script>
@@ -34,13 +40,65 @@
     firebase.initializeApp(firebaseConfig);
 
   </script>
-  <body>
+  <body><nav class="navbar navbar-fixed-top" style="background-color: #e0e0e0">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar" style="background-color:black"></span>
+          <span class="icon-bar" style="background-color:black"></span>
+          <span class="icon-bar" style="background-color:black"></span>
+        </button>
+        <a class="navbar-brand" href="#">Knock Knock</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="../">Home</a></li>
+          <li><a href="../scanner">Scan</a></li>
+          <li><a href="../makeYourOwn">Print Your own</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p><a data-toggle="modal" data-target="#myModal"><img id="userImg" style="height:4vh;margin-bottom:1vh; margin-left: 1vh; margin-right:1vh"></img><a id="name" style="margin-bottom:1vh; margin-left: 1vh; margin-right:1vh"></a></a></p>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  <!--Modal-->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">User Settings</h4>
+        </div>
+        <div class="modal-body">
+          <center>
+            <button type="button" class="btn btn-default" onclick="window.location.assign('../settings')">Settings</button><br><br>
+            <button type="button" class="btn btn-default" onclick="logOut()">Log Out</button>
+          </center>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 style="margin-left: 30px; margin-top:200px"> You have <a id="sweetCount"></a> sweets</h4>
 
   </body>
   <script src="/__/firebase/7.14.2/firebase-app.js"></script>
 
   <script src="/__/firebase/7.14.2/firebase-analytics.js"></script>
   <script src="/__/firebase/7.14.2/firebase-storage.js"></script>
+  <script>
+
+    if(sweets == NaN){
+      document.cookie = "sweets=0;"
+      sweets = 0;
+    }
+    document.getElementById('sweetCount').innerHTML = sweets;
+  </script>
 
 
 </html>

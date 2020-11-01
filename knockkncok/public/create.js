@@ -1,6 +1,7 @@
 //to create a barcode and put the code in the db
 var image = document.getElementById("barcode");
 var click = document.getElementById("click");
+var header = document.getElementById("changeable");
 
 var firebaseConfig = {
   apiKey: 'AIzaSyBe6NpoaABtjtQUmnSaZI3pa1kYS4klb0w',
@@ -24,6 +25,7 @@ function getClick(){
   var generated = generateNumber();
 
   image.src = "http://barcodes4.me/barcode/c128a/" + generated + ".jpg";
+  header.innerHTML = "Now screenshot these, print it off, and display in a prominent area of your house!"
   //send the number to the db
   saveClick(generated);
 
