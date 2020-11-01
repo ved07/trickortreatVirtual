@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Name Of Company</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/8.0.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.0.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.0.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/8.0.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/8.0.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/scandit-sdk@5.x"></script>
+  </head>
+  <body>
+    <!--Gets user's sweets-->
+    <script>
+      var sweets = parseInt(document.cookie, 10);
+      if(sweets == null){
+        document.cookie = "sweets=0;"
+        sweets = 0;
+      } //The user's sweets
+    </script>
+
+  </body>
+</html>
